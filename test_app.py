@@ -12,7 +12,7 @@ def test_health():
     print("✅ Health check test passed!")
 '''
 def test_add():
-    response = app.test_client().get('/add/2/3')
+    response = app.test_client().get('/')
     assert b"2 + 3 = 5" in response.data
     print("✅ Add endpoint test passed!")
 

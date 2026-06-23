@@ -11,7 +11,7 @@ app = Flask(__name__)
 #def health():
  #   return "OK", 200
 
-@app.route('/add/<int:a>/<int:b>')
+@app.route('/')
 def add_numbers(a, b):
     result = a + b
     return f"{a} + {b} = {result}"
