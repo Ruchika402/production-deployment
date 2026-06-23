@@ -1,10 +1,21 @@
-# app.py
-def get_message():
-    return "Hello from Docker on Windows!"
+from flask import Flask
+import os
 
+app = Flask(__name__)
+
+#@app.route('/')
+#def hello():
+ #   return "Hello from Docker on Windows! 🐳"
+
+#@app.route('/health')
+#def health():
+ #   return "OK", 200
+
+@app.route('/add/<int:a>/<int:b>')
 def add_numbers(a, b):
-    return a + b
+    result = a + b
+    return f"{a} + {b} = {result}"
 
 if __name__ == "__main__":
-    print(get_message())
-    print(f"2 + 3 = {add_numbers(2, 3)}")
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

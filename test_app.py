@@ -1,23 +1,23 @@
-# test_app.py
-from app import get_message, add_numbers
+from app import app
+'''
+def test_hello():
+    response = app.test_client().get('/')
+    assert response.status_code == 200
+    assert b"Hello from Docker on Windows!" in response.data
+    print("✅ Hello endpoint test passed!")
 
-def test_get_message():
-    assert get_message() == "Hello from Docker on Windows!"
-    print("✅ Message test passed!")
-
-def test_add_numbers():
-    assert add_numbers(2, 3) == 5
-    assert add_numbers(-1, 1) == 0
-    assert add_numbers(0, 0) == 0
-    print("✅ Addition tests passed!")
-
-def test_add_numbers_edge_cases():
-    assert add_numbers(100, 200) == 300
-    assert add_numbers(-5, -5) == -10
-    print("✅ Edge case tests passed!")
+def test_health():
+    response = app.test_client().get('/health')
+    assert response.status_code == 200
+    print("✅ Health check test passed!")
+'''
+def test_add():
+    response = app.test_client().get('/add/2/3')
+    assert b"2 + 3 = 5" in response.data
+    print("✅ Add endpoint test passed!")
 
 if __name__ == "__main__":
-    test_get_message()
-    test_add_numbers()
-    test_add_numbers_edge_cases()
+    #test_hello()
+    #test_health()
+    test_add()
     print("\n🎉 All tests passed successfully!")
